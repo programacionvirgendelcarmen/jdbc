@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38e8df38-631a-4627-b858-f90cef95d00a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_41_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jdbc.iml" afterDir="false" />
+    <list default="true" id="38e8df38-631a-4627-b858-f90cef95d00a" name="Changes" comment="Inicio del tema jdbc">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBs/usuarios.db" beforeDir="false" afterPath="$PROJECT_DIR$/DBs/usuarios.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQL/ejemplo2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/SQL/ejemplo2.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +60,18 @@
       <option name="presentableId" value="Default" />
       <updated>1683199475492</updated>
     </task>
+    <task id="LOCAL-00001" summary="Inicio del tema jdbc">
+      <created>1683296969135</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683296969135</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Inicio del tema jdbc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inicio del tema jdbc" />
   </component>
 </project>
