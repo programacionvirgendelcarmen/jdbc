@@ -2,10 +2,7 @@ package teoria.modelo.dao;
 
 import teoria.conexion.ConexionSingleton;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,23 +18,59 @@ public class UsuarioDAOImp implements UsuarioDAO{
     }
 
     @Override
-    public boolean insertarUsuario(Usuario usuario) {
-        return false;
+    public boolean insertarUsuario(Usuario usuario) throws SQLException {
+        String sql = " INSERT INTO usuario (nombre , dni ) VALUES ( ?, ?);";
+        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        sentencia.setString(1, usuario.getNombre());
+        sentencia.setString(2, usuario.getDni());
+        int exito = sentencia.executeUpdate();
+        if (sentencia != null)
+            sentencia.close();
+        return exito == 1;
     }
 
     @Override
-    public boolean eliminarUsuarioPorId(int id) {
-        return false;
+    public boolean eliminarUsuarioPorId(int idUsuario) throws SQLException {
+        String sql = " DELETE FROM usuario WHERE id = ?;";
+        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        sentencia.setInt(1, idUsuario);
+        int exito = sentencia.executeUpdate();
+        if (sentencia != null)
+            sentencia.close();
+        return exito == 1;
     }
 
     @Override
-    public boolean actualizarUsuarioPorId(Usuario newUsuario, int id) {
-        return false;
+    public boolean actualizarUsuarioPorId(Usuario newUsuario, int id) throws SQLException {
+       String sql = "UPDATE usuario SET nombre = ?, dni = ? WHERE id = ?;";
+       PreparedStatement sentencia = conexion.prepareStatement(sql);
+       sentencia.setString(1, newUsuario.getNombre());
+       sentencia.setString(2, newUsuario.getDni());
+       sentencia.setInt(3, id);
+       int exito = sentencia.executeUpdate();
+       if (sentencia != null)
+           sentencia.close();
+       return exito == 1;
     }
 
     @Override
-    public Usuario obtenerUsuarioPorId(int id) {
-        return null;
+    public Usuario obtenerUsuarioPorId(int idUsuario) throws SQLException {
+        Usuario usuario = null;
+        String sql = "select * from usuario  where id = ?;";
+        PreparedStatement sentencia = conexion.prepareStatement(sql);
+        sentencia.setInt(1, idUsuario);
+        ResultSet resultado = sentencia.executeQuery();
+        while (resultado.next()){
+            int id        = resultado.getInt("id");
+            String nombre = resultado.getString("nombre");
+            String dni    = resultado.getString("dni");
+            usuario = new Usuario(id, nombre, dni);
+        }
+        if (resultado != null)
+            resultado.close();
+        if (sentencia != null)
+            sentencia.close();
+        return usuario;
     }
 
     @Override
@@ -57,7 +90,6 @@ public class UsuarioDAOImp implements UsuarioDAO{
             resultado.close();
         if (sentencia != null)
             sentencia.close();
-
         return usuarios;
     }
 }
